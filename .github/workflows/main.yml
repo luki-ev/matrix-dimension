@@ -16,6 +16,6 @@ jobs:
     - run: npm install
     - run: npm run build
     - uses: actions/upload-artifact@v1
-        with:
-          name: matrix-dimension
-          path: build
+      with:
+        name: matrix-dimension
+        path: build
