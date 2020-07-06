@@ -2,6 +2,9 @@ name: CI
 
 on:
   push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   build:
@@ -15,7 +18,8 @@ jobs:
         node-version: '10.x'
     - run: npm install
     - run: npm run dist
-    - uses: actions/upload-artifact@v1
+    - uses: softprops/action-gh-release@78c309ef59fdb9557cd6574f2e0be552936ed728
       with:
-        name: matrix-dimension
-        path: dist/*.tar.gz
+        files: dist/*.tar.gz
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
