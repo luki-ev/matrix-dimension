@@ -13,7 +13,8 @@
     "build:app": "rimraf build/app && tsc -p tsconfig-app.json",
     "lint": "npm run-script lint:app && npm run-script lint:web",
     "lint:app": "tslint --project ./tsconfig-app.json -t stylish",
-    "lint:web": "tslint --project ./tsconfig.json -t stylish"
+    "lint:web": "tslint --project ./tsconfig.json -t stylish",
+    "dist": "scripts/package.sh"
   },
   "repository": {
     "type": "git",
